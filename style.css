@@ -5,7 +5,7 @@
 
 html {
     overflow: hidden;
-    background: center / cover no-repeat #104476;
+    background: center center/cover no-repeat fixed #104476;
 }
 
 body {
