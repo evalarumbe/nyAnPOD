@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    overflow: hidden;
+    background: center / cover no-repeat #104476;
+}
+
+body {
+    display: flex;
+    align-items: center;
+}
