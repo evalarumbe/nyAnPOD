@@ -6,7 +6,7 @@
 html {
     height: 100%;
     overflow: hidden;
-    background: center center/cover no-repeat fixed #104476;
+    background-color: #104476;
 }
 
 body {

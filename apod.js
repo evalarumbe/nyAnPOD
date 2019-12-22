@@ -10,5 +10,6 @@
     const { url, explanation } = data;
 
     const html = document.querySelector('html');
-    html.style.backgroundImage = `url(${url})`;
+
+    html.style.background = `#104476 url(${url}) center center / cover no-repeat fixed`;
 })();
