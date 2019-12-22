@@ -1,6 +1,6 @@
 (async () => {
     const html = document.querySelector('html');
-    const body = document.querySelector('body');
+    const exp = document.querySelector('#explanation');
 
     const today = new Date();    
     todayString = [today.getUTCFullYear(), today.getMonth(), today.getDate()].join('-');
@@ -19,7 +19,8 @@
     html.style.background = `#104476 url(${url}) center center / cover no-repeat fixed`;
 
     // display the APOD explanation
-    const exp = document.createElement('p');
-    exp.textContent = explanation;
-    body.appendChild(exp);
+
+    const p = document.createElement('p');
+    p.textContent = explanation;
+    exp.insertBefore(p, exp.querySelector('a'));
 })();
