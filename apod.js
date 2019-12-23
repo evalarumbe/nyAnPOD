@@ -1,6 +1,5 @@
 (async () => {
 
-
     const renderApod = async () => {
         const html = document.querySelector('html');
         const exp = document.querySelector('#explanation');
@@ -26,17 +25,5 @@
         p.textContent = explanation;
     };
 
-    // a11y TODO: notify DOM when audio is on/off
-    const handleAudio = () => {
-        const toggle = document.querySelector('#audio-toggle use');
-        toggle.addEventListener('click', (e) => {
-            const btn = toggle.getAttribute('href').includes('play') ? 'mute' : 'play';
-            toggle.setAttribute('xlink:href', `#${btn}-button`);
-            toggle.setAttribute('href', `#${btn}-button`);
-            e.preventDefault();
-        });
-    };
-
     renderApod();
-    handleAudio();
 })();

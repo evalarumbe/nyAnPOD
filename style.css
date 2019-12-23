@@ -26,22 +26,6 @@ audio {
 
 }
 
-#audio-toggle {
-    width: 3rem;
-    height: auto;
-    position: fixed;
-    top: 2rem;
-    right: 1rem;
-    z-index: 1;
-}
-
-#audio-toggle use {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-
-    background-image: url('./images/play-button.svg');
-}
-
 /* Nyan */
 img {
     max-width: 100%;
