@@ -28,7 +28,7 @@
 
     // a11y TODO: notify DOM when audio is on/off
     const handleAudio = () => {
-        const toggle = document.querySelector('#audio-toggle');
+        const toggle = document.querySelector('#audio-toggle use');
         toggle.addEventListener('click', (e) => {
             const btn = toggle.getAttribute('href').includes('play') ? 'mute' : 'play';
             toggle.setAttribute('xlink:href', `#${btn}-button`);
