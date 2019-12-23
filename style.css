@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     line-height: 1.45;
-    font-family: sans-serif;
+    font-family: 'Open Sans', sans-serif;
     color: #012d57;
 }
 
@@ -38,6 +38,15 @@ img {
 
 h1 {
     padding-bottom: 1rem;
+}
+
+#audio-toggle {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    width: 2rem;
+    height: 2rem;
+    
+    background-image: url('./images/play-button.svg');
 }
 
 a {
