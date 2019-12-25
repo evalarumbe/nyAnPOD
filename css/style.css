@@ -90,6 +90,14 @@ a:active {
     border-color: #012d57;
 }
 
+.toggle-info:hover {
+    background-color: #fff;
+}
+
+.toggle-info:active {
+    background-color: #eee;
+}
+
 /* Toggle - "Ooh, shiny!" */
 #open-info {
     align-self: flex-end;
@@ -105,12 +113,9 @@ a:active {
     transition: 0.5s ease-in-out;
 }
 
-.toggle-info:hover {
-    background-color: #fff;
-}
-
-.toggle-info:active {
-    background-color: #eee;
+#info[aria-expanded=true] + #open-info,
+#info[aria-expanded] + #open-info {
+    opacity: 0;
 }
 
 /* Toggle - "×" */
