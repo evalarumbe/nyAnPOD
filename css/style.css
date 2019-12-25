@@ -1,6 +1,4 @@
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
     line-height: 1.45;
     font-family: 'Open Sans', sans-serif;
@@ -14,9 +12,10 @@ html {
 }
 
 body {
+    padding: 2rem 1rem;
     display: flex;
     flex-flow: column nowrap;
-    padding: 2rem 1rem;
+    align-items: center;
 }
 
 audio {
@@ -34,22 +33,25 @@ img {
     left: -2rem;
 }
 
-#info {
-    align-self: center;
-    margin: 1rem 0;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 2rem 3rem 3rem;
-    border-radius: 15px;
-    max-width: 50rem;
+.container {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    transition: transform 0.35s ease-in-out;
+}
+
+#info {
+    margin-top: 1rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 2rem 3rem 3rem;
+    border-radius: 1.8em;
+    max-width: 50rem;
+    transition: 0.35s ease-in-out;
     transform-origin: bottom right;
 }
 
 #info:not([aria-expanded=true]):not([aria-expanded]) {
     transform: scale(0, 0);
+    opacity: 0;
 }
 
 h1 {
@@ -82,16 +84,22 @@ a:active {
     border-color: #012d57;
 }
 
-button {
+#toggle-info {
+    align-self: flex-end;
     line-height: 3;
+    transform: translateY(-3em);
     border-radius: 3em;
+    border: none;
     background-color: #ccc;
+    position: sticky;
+    bottom: 1em;
+    padding: 0 1em;
 }
 
-button:hover {
+#toggle-info:hover {
     background-color: #fff;
 }
 
-button:active {
+#toggle-info:active {
     background-color: #eee;
 }
