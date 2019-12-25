@@ -23,6 +23,7 @@ audio {
     width: 100%;
     position: sticky;
     top: 0;
+    z-index: 1
 }
 
 /* Nyan */
@@ -104,16 +105,32 @@ a:active {
     transition: 0.5s ease-in-out;
 }
 
-#open-info:hover {
+.toggle-info:hover {
     background-color: #fff;
 }
 
-#open-info:active {
+.toggle-info:active {
     background-color: #eee;
 }
 
 /* Toggle - "×" */
-#info[aria-expanded] + #close-info {
+#close-info {
+    order: -1;
+    opacity: 0;
     position: absolute;
-    top: 4em;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.2);
+    top: 1.5em;
+    right: 1em;
+    line-height: 1.5;
+    width: 1.5em;
+    border-radius: 2.5em;
+    border: none;
+    font-size: 2em;
+}
+
+#info[aria-expanded=true] ~ #close-info,
+#info[aria-expanded] ~ #close-info {
+    transition: 0.5s ease-in;
+    opacity: 0.8;
 }
