@@ -1,8 +1,9 @@
 (async () => {
 
+    const info = document.querySelector('#info');
+
     const renderApod = async () => {
         const html = document.querySelector('html');
-        const exp = document.querySelector('#explanation');
     
         const today = new Date();    
         todayString = [today.getUTCFullYear(), today.getMonth(), today.getDate()].join('-');
@@ -10,7 +11,7 @@
         // TODO: why do i need await twice?
         // const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${todayString}`);
         // const data = await response.json();
-        // const { url, explanation } = data;
+        // const { url, info } = data;
     
     
         // TODO: use above real data. This is a placeholder (too many requests)
@@ -20,18 +21,17 @@
         // set the APOD background
         html.style.background = `#104476 url(${url}) center center / cover no-repeat fixed`;
     
-        // display the APOD explanation
-        const p = exp.querySelector('p');
+        // display the APOD info
+        const p = info.querySelector('p');
         p.textContent = explanation;
     };
 
     const setPopUp = () => {
         const togglePopUp = function() {
-            const exp = document.querySelector('#explanation');
-            exp.toggleAttribute('aria-expanded');
+            info.toggleAttribute('aria-expanded');
         };
-
-        document.querySelector('#show-exp').addEventListener('click', togglePopUp);
+        console.log(info);
+        document.querySelector('#toggle-info').addEventListener('click', togglePopUp);
     };
 
     renderApod();

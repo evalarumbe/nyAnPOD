@@ -34,7 +34,7 @@ img {
     left: -2rem;
 }
 
-#explanation {
+#info {
     align-self: center;
     margin: 1rem 0;
     background-color: rgba(255, 255, 255, 0.8);
@@ -44,6 +44,12 @@ img {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
+    transition: transform 0.35s ease-in-out;
+    transform-origin: bottom right;
+}
+
+#info:not([aria-expanded=true]):not([aria-expanded]) {
+    transform: scale(0, 0);
 }
 
 h1 {
