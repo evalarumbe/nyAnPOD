@@ -17,9 +17,6 @@ body {
     padding: 2rem 1rem;
 }
 
-header {
-}
-
 audio {
     filter: drop-shadow(1px 8px 5px rgba(0, 0, 0, 0.5));
     width: 100%;
@@ -57,7 +54,6 @@ h1 {
     text-decoration: none;
     border-bottom: 2px solid #104476;
 }
-
 
 a:link {
     color: #104476;
