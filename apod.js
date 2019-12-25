@@ -31,7 +31,7 @@
             info.toggleAttribute('aria-expanded');
         };
         console.log(info);
-        document.querySelector('#toggle-info').addEventListener('click', togglePopUp);
+        document.querySelectorAll('.toggle-info').forEach((btn) => {btn.addEventListener('click', togglePopUp)});
     };
 
     renderApod();

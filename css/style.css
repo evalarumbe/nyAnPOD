@@ -26,17 +26,22 @@ audio {
 }
 
 /* Nyan */
+picture {
+    align-self: flex-start;
+    position: relative;
+    left: -2rem;
+}
+
 img {
     max-width: 24rem;
     height: auto;
-    position: relative;
-    left: -2rem;
 }
 
 .container {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
+    position: relative;
 }
 
 #info {
@@ -84,9 +89,11 @@ a:active {
     border-color: #012d57;
 }
 
-#toggle-info {
+/* Toggle - "Ooh, shiny!" */
+#open-info {
     align-self: flex-end;
     line-height: 3;
+    max-height: 3em;
     transform: translateY(-3em);
     border-radius: 3em;
     border: none;
@@ -94,12 +101,19 @@ a:active {
     position: sticky;
     bottom: 1em;
     padding: 0 1em;
+    transition: 0.5s ease-in-out;
 }
 
-#toggle-info:hover {
+#open-info:hover {
     background-color: #fff;
 }
 
-#toggle-info:active {
+#open-info:active {
     background-color: #eee;
+}
+
+/* Toggle - "×" */
+#info[aria-expanded] + #close-info {
+    position: absolute;
+    top: 4em;
 }
