@@ -25,5 +25,15 @@
         p.textContent = explanation;
     };
 
+    const setPopUp = () => {
+        const togglePopUp = function() {
+            const exp = document.querySelector('#explanation');
+            exp.toggleAttribute('aria-expanded');
+        };
+
+        document.querySelector('#show-exp').addEventListener('click', togglePopUp);
+    };
+
     renderApod();
+    setPopUp();
 })();
