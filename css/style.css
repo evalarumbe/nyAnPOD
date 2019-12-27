@@ -55,7 +55,13 @@ img {
     transform-origin: bottom right;
 }
 
-#info:not([aria-expanded=true]):not([aria-expanded]) {
+/* FIXME: #info is not scaled to 0. why?
+the layout saves space for them but i don't want it to. i want a fullsreen to start
+*/
+#info[aria-expanded=false],
+#info:not([aria-expanded]),
+#info[aria-expanded=false] ~ #close-info,
+#info:not([aria-expanded]) ~ #close-info {
     transform: scale(0, 0);
     opacity: 0;
 }
@@ -99,7 +105,10 @@ a:active {
 }
 
 /* Toggle - "Ooh, shiny!" */
-#open-info {
+#info[aria-expanded=false],
+#info:not([aria-expanded]),
+#info[aria-expanded=false] ~ #open-info,
+#info:not([aria-expanded]) ~ #open-info {
     align-self: flex-end;
     line-height: 3;
     max-height: 3em;
@@ -143,7 +152,6 @@ a:active {
     color: white;
     background-color: rgba(0, 0, 0, 0.6);
 }
-
 
 #info[aria-expanded=true] ~ #close-info,
 #info[aria-expanded] ~ #close-info {
