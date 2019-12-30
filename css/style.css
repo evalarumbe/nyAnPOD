@@ -18,12 +18,16 @@ body {
     align-items: flex-end;
 }
 
+/* sound button */
 #audio-toggle {
     filter: drop-shadow(1px 8px 5px rgba(0, 0, 0, 0.5));
-    /* width: 100%; */
     position: sticky;
     top: 1rem;
     z-index: 1
+}
+
+#waves path {
+    opacity: 0; 
 }
 
 /* Nyan */
