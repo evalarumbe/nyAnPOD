@@ -1,10 +1,9 @@
 (async () => {
 
     const info = document.querySelector('#info');
-
+    
     const renderApod = async () => {
         const html = document.querySelector('html');
-    
         const today = new Date();    
         todayString = [today.getUTCFullYear(), today.getMonth(), today.getDate()].join('-');
     
