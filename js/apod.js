@@ -31,13 +31,9 @@
             // We start with aria-expanded="false" because if we left it out completely, there would be no indication to screen readers that the element is expandable. (This is why we need the conditional instead of just using toggleAttribute every time)
             // Yes, we need to use strings to represent 'true' and 'false'. I didn't write the spec, I'm horrified too.
             if (info.getAttribute('aria-expanded') === 'false') {
-                console.log('if!', info.getAttribute('aria-expanded'), typeof info.getAttribute('aria-expanded'));
                 info.setAttribute('aria-expanded', 'true');
-                console.log('then...', info.getAttribute('aria-expanded'), typeof info.getAttribute('aria-expanded'));
             } else {
-                console.log('else!', info.getAttribute('aria-expanded'), typeof info.getAttribute('aria-expanded'));
                 info.toggleAttribute('aria-expanded');
-                console.log('then...', info.getAttribute('aria-expanded'), typeof info.getAttribute('aria-expanded'));
             }
         };
 
