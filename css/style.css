@@ -22,7 +22,7 @@ body {
     filter: drop-shadow(1px 8px 5px rgba(0, 0, 0, 0.5));
     position: sticky;
     top: 1rem;
-    z-index: 1
+    z-index: 2;
 }
 
 #waves path {
@@ -122,10 +122,11 @@ a:active {
     bottom: 1em;
     padding: 0 1em;
     transition: 0.5s ease-in-out;
+    z-index: 1;
 }
 
 /* When #info is expanded, hide the open button */
-#info[aria-expanded]:not([aria-expanded="false"]) + #open-info {
+#open-info[aria-expanded]:not([aria-expanded="false"]) {
     opacity: 0;
 }
 
@@ -142,6 +143,7 @@ a:active {
     width: 1.5em;
     border: none;
     font-size: 2em;
+    z-index: 1;
 
     /* hidden by default */
     opacity: 0;
@@ -158,7 +160,7 @@ a:active {
 }
 
 /* When #info is expanded, show the close button */
-#info[aria-expanded]:not([aria-expanded="false"]) ~ #close-info {
+#close-info[aria-expanded]:not([aria-expanded="false"]) {
     transition: 0.5s ease-in; /* TODO: transition on default? */
     opacity: 0.8;
 }

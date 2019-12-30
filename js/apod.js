@@ -1,7 +1,4 @@
-(async () => {
-
-    const info = document.querySelector('#info');
-    
+(async () => {    
     const renderApod = async () => {
         const html = document.querySelector('html');
         const today = new Date();    
@@ -20,21 +17,25 @@
         html.style.background = `#104476 url(${url}) center center / cover no-repeat fixed`;
     
         // display the APOD info
-        const h1 = info.querySelector('h1');
+        const h1 = document.querySelector('#info h1');
         h1.textContent = title;
-        const p = info.querySelector('p');
+        const p = document.querySelector('#info p');
         p.textContent = explanation;
     };
 
     const setPopUp = () => {
         const togglePopUp = function() {
-            // We start with aria-expanded="false" because if we left it out completely, there would be no indication to screen readers that the element is expandable. (This is why we need the conditional instead of just using toggleAttribute every time)
-            // Yes, we need to use strings to represent 'true' and 'false'. I didn't write the spec, I'm horrified too.
-            if (info.getAttribute('aria-expanded') === 'false') {
-                info.setAttribute('aria-expanded', 'true');
-            } else {
-                info.toggleAttribute('aria-expanded');
-            }
+
+            const elementsWithExpandableState = [...document.querySelectorAll('.info-container *')];
+            elementsWithExpandableState.forEach(el => {
+                // We start with aria-expanded="false" because if we left it out completely, there would be no indication to screen readers that the element is expandable. (This is why we need the conditional instead of just using toggleAttribute every time)
+                // Yes, we need to use strings to represent 'true' and 'false'. I didn't write the spec, I'm horrified too.
+                if (info.getAttribute('aria-expanded') === 'false') {
+                    el.setAttribute('aria-expanded', 'true');
+                } else {
+                    el.toggleAttribute('aria-expanded');
+                }
+            });  
         };
 
         // TODO: destructure this into an array when you remember what you were trying to do here. did you want to target both x and button?
