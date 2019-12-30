@@ -60,10 +60,26 @@ img {
     transform-origin: bottom right;
 }
 
-#info:not([aria-expanded=true]):not([aria-expanded]) {
+/* TODO NEXT:
+try these selectors in isolation, until you can reliably predict when they will take effect.
+Each of the 3 rule sets targets 2 different selectors. Test all 6 separately.
+*/
+
+#info {
+    color: red;
+}
+
+/* expanded state */
+#info[aria-expanded]:not([aria-expanded="false"]) {
+    color: green;
+}
+
+/* TODO: Commented for testing */
+/* #info[aria-expanded=false],
+#info:not([aria-expanded]) {
     transform: scale(0, 0);
     opacity: 0;
-}
+} */
 
 h1 {
     padding-bottom: 1rem;
@@ -118,14 +134,15 @@ a:active {
     transition: 0.5s ease-in-out;
 }
 
-#info[aria-expanded=true] + #open-info,
+/* TODO: Commented for testing */
+/* #info[aria-expanded=true] + #open-info,
 #info[aria-expanded] + #open-info {
     opacity: 0;
-}
+} */
 
 /* Toggle - "×" */
 #close-info {
-    order: -1;
+    order: -2;
     opacity: 0;
     position: absolute;
     color: black;
@@ -153,8 +170,9 @@ a:active {
     order: -1;
 }
 
-#info[aria-expanded=true] ~ #close-info,
+/* TODO: Commented for testing */
+/* #info[aria-expanded=true] ~ #close-info,
 #info[aria-expanded] ~ #close-info {
     transition: 0.5s ease-in;
     opacity: 0.8;
-}
+} */
