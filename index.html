@@ -40,7 +40,8 @@
     </picture>
 
     <div class="info-container">
-        <button id="open-info" class="toggle-info" controls="info" aria-label="open info" aria-expanded="false">Ooh, shiny!</button>
+        <!-- This weird link hack shows the top of info panel when it opens. TODO: Is there a better way? -->
+        <a href="#top" role="button" id="open-info" class="toggle-info" controls="info" aria-label="open info" aria-expanded="false">Ooh, shiny!</a>
         <button id="close-info" class="toggle-info" aria-label="close info" controls="info" aria-expanded="false">&#215;</button>
         <section id="info" aria-expanded="false">
             <h1>Astronomy Picture of the Day</h1>
