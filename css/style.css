@@ -43,6 +43,7 @@ img {
 }
 
 .info-container {
+    color: #012d57;
     align-self: center;
     display: flex;
     flex-flow: column nowrap;
