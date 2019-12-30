@@ -15,14 +15,14 @@ body {
     padding: 2rem 1rem;
     display: flex;
     flex-flow: column nowrap;
-    align-items: center;
+    align-items: flex-end;
 }
 
-audio {
+#audio-toggle {
     filter: drop-shadow(1px 8px 5px rgba(0, 0, 0, 0.5));
-    width: 100%;
+    /* width: 100%; */
     position: sticky;
-    top: 0;
+    top: 1rem;
     z-index: 1
 }
 
@@ -38,7 +38,8 @@ img {
     height: auto;
 }
 
-.container {
+.info-container {
+    align-self: center;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
