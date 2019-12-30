@@ -150,6 +150,9 @@ a:active {
     background-color: rgba(0, 0, 0, 0.6);
 }
 
+#info {
+    order: -1;
+}
 
 #info[aria-expanded=true] ~ #close-info,
 #info[aria-expanded] ~ #close-info {
