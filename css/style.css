@@ -51,6 +51,7 @@ img {
 }
 
 #info {
+    order: -1;
     margin-top: 1rem;
     background-color: rgba(255, 255, 255, 0.8);
     padding: 2rem 3rem 3rem;
@@ -58,28 +59,17 @@ img {
     max-width: 50rem;
     transition: 0.35s ease-in-out;
     transform-origin: bottom right;
-}
 
-/* TODO NEXT:
-try these selectors in isolation, until you can reliably predict when they will take effect.
-Each of the 3 rule sets targets 2 different selectors. Test all 6 separately.
-*/
-
-#info {
-    color: red;
+    /* collapsed by default */
+    transform: scale(0);
+    opacity: 0;
 }
 
 /* expanded state */
 #info[aria-expanded]:not([aria-expanded="false"]) {
-    color: green;
+    transform: scale(1);
+    opacity: 1;
 }
-
-/* TODO: Commented for testing */
-/* #info[aria-expanded=false],
-#info:not([aria-expanded]) {
-    transform: scale(0, 0);
-    opacity: 0;
-} */
 
 h1 {
     padding-bottom: 1rem;
@@ -134,16 +124,14 @@ a:active {
     transition: 0.5s ease-in-out;
 }
 
-/* TODO: Commented for testing */
-/* #info[aria-expanded=true] + #open-info,
-#info[aria-expanded] + #open-info {
+/* When #info is expanded, hide the open button */
+#info[aria-expanded]:not([aria-expanded="false"]) + #open-info {
     opacity: 0;
-} */
+}
 
 /* Toggle - "×" */
 #close-info {
     order: -2;
-    opacity: 0;
     position: absolute;
     color: black;
     background: none;
@@ -154,6 +142,9 @@ a:active {
     width: 1.5em;
     border: none;
     font-size: 2em;
+
+    /* hidden by default */
+    opacity: 0;
 }
 
 #close-info:hover {
@@ -166,13 +157,8 @@ a:active {
     background-color: rgba(0, 0, 0, 0.6);
 }
 
-#info {
-    order: -1;
-}
-
-/* TODO: Commented for testing */
-/* #info[aria-expanded=true] ~ #close-info,
-#info[aria-expanded] ~ #close-info {
-    transition: 0.5s ease-in;
+/* When #info is expanded, show the close button */
+#info[aria-expanded]:not([aria-expanded="false"]) ~ #close-info {
+    transition: 0.5s ease-in; /* TODO: transition on default? */
     opacity: 0.8;
-} */
+}
