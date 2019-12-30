@@ -37,7 +37,7 @@
             }
         };
 
-        // TODO: descrture this into an array when you remember what you were trying to do here. did you want to target both x and button?
+        // TODO: destructure this into an array when you remember what you were trying to do here. did you want to target both x and button?
         document.querySelectorAll('.toggle-info').forEach((btn) => {btn.addEventListener('click', togglePopUp)});
     };
 
