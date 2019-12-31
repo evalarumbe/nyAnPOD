@@ -6,10 +6,10 @@
 
 html {
     height: 100%;
-    background-color: #104476;
+    background-color: #31aafe;
     font-size: 120%;
     scroll-behavior: smooth;
-    overflow: hidden;
+    /* TODO: overflow: hidden; */
 }
 
 body {
@@ -54,7 +54,7 @@ img {
 }
 
 .info-container {
-    color: #012d57;
+    color: #7744ff;
     align-self: center;
     display: flex;
     flex-flow: column nowrap;
@@ -91,7 +91,7 @@ a {
     padding: 1rem 0 0.2rem;
     align-self: flex-end;
     text-decoration: none;
-    border-bottom: 2px solid #104476;
+    border-bottom: 2px solid #326cff;
 }
 
 a .reveal {
@@ -99,17 +99,17 @@ a .reveal {
 }
 
 a:link {
-    color: #104476;
+    color: #326cff;
 }
 
 a:visited {
-    color: #561076;
-    border-color: #561076;
+    color: #7744ff;
+    border-color: #7744ff;
 }
 
 a:hover {
-    color: #205f92;
-    border-color: #205f92;
+    color: #326cff;
+    border-color: #326cff;
 }
 
 a:hover .nyasa {
@@ -121,8 +121,8 @@ a:hover .reveal {
 }
 
 a:active {
-    color: #012d57;
-    border-color: #012d57;
+    color: #31aafe;
+    border-color: #31aafe;
 }
 
 .toggle-info:hover {
