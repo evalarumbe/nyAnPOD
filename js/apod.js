@@ -1,10 +1,9 @@
 (async () => {    
-    const renderApod = async () => {
+    const renderApod = async (date = new Date()) => {
         const html = document.querySelector('html');
-        const today = new Date();    
-        todayString = [today.getUTCFullYear(), today.getMonth(), today.getDate()].join('-');
+        dateString = [date.getUTCFullYear(), date.getMonth(), date.getDate()].join('-');
     
-        // const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${todayString}`);
+        // const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${dateString}`);
         // const data = await response.json();
         // const { url, title, explanation } = data;
         
