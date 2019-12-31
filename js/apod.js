@@ -26,8 +26,9 @@
     const setPopUp = () => {
         const togglePopUp = function() {
 
-            const elementsWithExpandableState = [...document.querySelectorAll('.info-container *')];
-            elementsWithExpandableState.forEach(el => {
+            // aria-expanded is used on the #info element and on its buttons,
+            // because this keeps a11y happy and makes the CSS more readable
+            document.querySelectorAll('.info-container *').forEach(el => {
                 // We start with aria-expanded="false" because if we left it out completely, there would be no indication to screen readers that the element is expandable. (This is why we need the conditional instead of just using toggleAttribute every time)
                 // Yes, we need to use strings to represent 'true' and 'false'. I didn't write the spec, I'm horrified too.
                 if (info.getAttribute('aria-expanded') === 'false') {
@@ -38,7 +39,6 @@
             });  
         };
 
-        // TODO: destructure this into an array when you remember what you were trying to do here. did you want to target both x and button?
         document.querySelectorAll('.toggle-info').forEach((btn) => {btn.addEventListener('click', togglePopUp)});
     };
 
