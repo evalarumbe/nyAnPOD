@@ -9,13 +9,8 @@
     <title>nyAnPOD</title>
 </head>
 <body>
-    <audio id="nyan-audio" preload="auto" loop="true">
-        <source src="./audio/nyan.ogg" type="audio/ogg">
-        <source src="./audio/nyan.mp3" type="audio/mpeg">
-        Please update your browser for the full nyan experience
-    </audio>
     <svg id="audio-toggle" aria-controls="nyan-audio" role="button" width="3em" height="3em" viewBox="0 0 432 432" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <!-- Generator: Sketch 56.3 (81716) - https://sketch.com -->
+    <!-- Generator: Sketch 56.3 (81716) - https://sketch.com -->
         <title>volume-icon</title>
         <desc>Created with Sketch.</desc>
         <g id="sound-icon" transform="translate(20.000000, 20.000000)" fill="none" fill-rule="evenodd">
@@ -34,6 +29,12 @@
             <circle stroke="#FFFFFF" stroke-width="20" fill-opacity="0.5" fill="#FFFFFF" fill-rule="nonzero" cx="196" cy="196" r="206"></circle>
         </g>
     </svg>
+    <audio id="nyan-audio" preload="auto" loop="true">
+        <source src="./audio/nyan.ogg" type="audio/ogg">
+        <source src="./audio/nyan.mp3" type="audio/mpeg">
+        Please update your browser for the full nyan experience
+    </audio>
+    
     <picture>
         <source srcset="./images/nyan-no-motion.gif" media="(prefers-reduced-motion: reduce)">
         <img src="./images/nyan.gif" alt="to boldy nyan where no-one has nyaned before" width="1000" height="805" />
@@ -42,7 +43,7 @@
     <div class="info-container">
         <!-- aria-expanded is used on the #info element and on its buttons,
         because this keeps a11y happy and makes the CSS more readable -->
-        
+
         <!-- This weird link hack shows the top of info panel when it opens. TODO: Is there a better way? -->
         <a href="#top" role="button" id="open-info" class="toggle-info" controls="info" aria-label="open info" aria-expanded="false">Ooh, shiny!</a>
         <button id="close-info" class="toggle-info" aria-label="close info" controls="info" aria-expanded="false">&#215;</button>

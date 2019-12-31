@@ -26,6 +26,8 @@ body {
     z-index: 2;
 }
 
+/* TODO: get yer .audible here */
+
 #waves path {
     opacity: 0; 
 }
