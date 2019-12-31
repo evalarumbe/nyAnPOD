@@ -26,7 +26,14 @@ body {
     z-index: 2;
 }
 
-/* TODO: get yer .audible here */
+.audible #x {
+    opacity: 0;
+
+}
+
+.audible #waves path {
+    opacity: 1;
+}
 
 #waves path {
     opacity: 0; 
