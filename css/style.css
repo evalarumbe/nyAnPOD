@@ -92,6 +92,10 @@ a {
     border-bottom: 2px solid #104476;
 }
 
+a .reveal {
+    display: none;
+}
+
 a:link {
     color: #104476;
 }
@@ -104,6 +108,14 @@ a:visited {
 a:hover {
     color: #205f92;
     border-color: #205f92;
+}
+
+a:hover .nyasa {
+    font-weight: bold;
+}
+
+a:hover .reveal {
+    display: inline;
 }
 
 a:active {
