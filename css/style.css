@@ -40,6 +40,14 @@ body {
     opacity: 0; 
 }
 
+#date,
+.submit {
+    border-radius: 3em;
+    border: none;
+    line-height: 2em;
+    padding: 0 1ch;
+}
+
 /* Nyan */
 picture {
     align-self: flex-start;

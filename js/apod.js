@@ -8,6 +8,7 @@
             console.error(err);
         }
         
+        // TODO: Whole bunch of error handling, see Trello
         const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${dateString}`);
         const data = await response.json();
         const { url, title, explanation } = data;
@@ -29,8 +30,7 @@
 
     const handleForm = function(event) {
         event.preventDefault();
-        // TODO: check for Invalid date (e.g. no input)
-        // TODO: check permitted date ranges for APOD
+        // TODO: Whole bunch of error handling, see Trello
         const date = new Date(this.date.value);
         console.log(date);
         renderApod(date);
