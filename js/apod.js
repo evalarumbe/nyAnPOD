@@ -31,9 +31,15 @@
     const handleForm = function(event) {
         event.preventDefault();
         // TODO: Whole bunch of error handling, see Trello
-        const date = new Date(this.date.value);
-        console.log(date);
-        renderApod(date);
+        try {
+            const date = new Date(this.date.value);
+            console.log(date);
+            renderApod(date);
+        } catch (err) {
+            console.error(error);
+            // if: invalid date
+            // if: out of APOD range (June 20 1995)
+        }
     };
 
     const setPopUp = () => {
