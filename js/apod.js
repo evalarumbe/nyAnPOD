@@ -1,33 +1,31 @@
 (async () => {
-    const getUserDate = (userDate) => {
-        if (!userDate) {
+    // All dates are treated as strings in the format YYYY-MM-DD
+    const validDate = (date) => {
+        const earliestApod = '1995-06-20';
+        const today = new Date().toISOString().substring(0, 10);
+
+        if (!date) {
             throw new Error('Please choose a date.');
         }
 
-        const date = new Date(userDate);
-        const earliestApod = new Date('1995-06-20');
-        const today = new Date();
-
-        // Expected: YYYY-MM-DD only
-        // TODO: only accept valid dates. (Fail on 31 Sept, 30 Feb)
-        if (!userDate.match(/^\d{4}-\d{2}-\d{2}$/)) {
+        // Only accept valid dates (e.g. fail on 30 Feb)
+        if (!validator.isISO8601(date, {strict: true})) {
             throw new Error('Please enter a date in the format YYYY-MM-DD or select one from the calendar.');
         }
 
-        if (date < earliestApod || date > today) {
+        if (validator.isBefore(date, earliestApod) || validator.isAfter(date, today)) {
             throw new RangeError('Please choose a date between 1st Jan 2015 and today.');
         }
 
-        return new Date (date);
+        return date;
     };
     
-    const renderApod = async (date = new Date()) => {
+    // Default to today's date
+    const renderApod = async (date = new Date().toISOString().substring(0, 10)) => {
         const html = document.querySelector('html');
 
-        dateString = [date.getUTCFullYear(), date.getMonth() + 1, date.getDate()].join('-');
-        
         // TODO: Whole bunch of error handling, see Trello
-        const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${dateString}`);
+        const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${date}`);
         const data = await response.json();
         const { url, title, explanation } = data;
         
@@ -70,7 +68,7 @@
         event.preventDefault();
 
         try {
-            renderApod(getUserDate(this.date.value));
+            renderApod(validDate(this.date.value));
             setPopUp();
         } catch (error) {
             console.error(error);
