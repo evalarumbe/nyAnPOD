@@ -1,4 +1,24 @@
 (async () => {    
+    const getUserDate = (userDate) => {
+        if (!userDate) {
+            throw new Error('Please choose a date.');
+        }
+
+        const date = new Date(userDate);
+        const earliestApod = new Date('1995-06-20');
+        const today = new Date();
+        
+        // TODO: Validator is more robust than native HTML5 form validation
+        // if date is not well formatted
+        // throw error with message
+        
+        if (date < earliestApod || date > today) {
+            throw new RangeError('Please choose a date between 1st Jan 2015 and today.');
+        }
+
+        return new Date (date);
+    };
+    
     const renderApod = async (date = new Date()) => {
         const html = document.querySelector('html');
 
@@ -27,21 +47,7 @@
         const p = document.querySelector('#info p');
         p.textContent = explanation;
     };
-
-    const handleForm = function(event) {
-        event.preventDefault();
-        // TODO: Whole bunch of error handling, see Trello
-        try {
-            const date = new Date(this.date.value);
-            console.log(date);
-            renderApod(date);
-        } catch (err) {
-            console.error(error);
-            // if: invalid date
-            // if: out of APOD range (June 20 1995)
-        }
-    };
-
+    
     const setPopUp = () => {
         const togglePopUp = function() {
 
@@ -60,9 +66,19 @@
 
         document.querySelectorAll('.toggle-info').forEach((btn) => {btn.addEventListener('click', togglePopUp)});
     };
+    
+    const handleDateForm = function(event) {
+        // Don't navigate on submit
+        event.preventDefault();
 
-    document.querySelector('#apod-date').addEventListener('submit', handleForm);
+        try {
+            renderApod(getUserDate(this.date.value));
+            setPopUp();
+        } catch (error) {
+            console.error(error);
+            // TODO: notify user
+        }
+    };
 
-    renderApod();
-    setPopUp();
+    document.querySelector('#apod-date').addEventListener('submit', handleDateForm);
 })();
