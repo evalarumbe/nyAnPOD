@@ -1,4 +1,4 @@
-(async () => {    
+(async () => {
     const getUserDate = (userDate) => {
         if (!userDate) {
             throw new Error('Please choose a date.');
@@ -7,11 +7,13 @@
         const date = new Date(userDate);
         const earliestApod = new Date('1995-06-20');
         const today = new Date();
-        
-        // TODO: Validator is more robust than native HTML5 form validation
-        // if date is not well formatted
-        // throw error with message
-        
+
+        // Expected: YYYY-MM-DD only
+        // TODO: only accept valid dates. (Fail on 31 Sept, 30 Feb)
+        if (!userDate.match(/^\d{4}-\d{2}-\d{2}$/)) {
+            throw new Error('Please enter a date in the format YYYY-MM-DD or select one from the calendar.');
+        }
+
         if (date < earliestApod || date > today) {
             throw new RangeError('Please choose a date between 1st Jan 2015 and today.');
         }
@@ -22,11 +24,7 @@
     const renderApod = async (date = new Date()) => {
         const html = document.querySelector('html');
 
-        try {
-            dateString = [date.getUTCFullYear(), date.getMonth() + 1, date.getDate()].join('-');
-        } catch(err) {
-            console.error(err);
-        }
+        dateString = [date.getUTCFullYear(), date.getMonth() + 1, date.getDate()].join('-');
         
         // TODO: Whole bunch of error handling, see Trello
         const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${dateString}`);
